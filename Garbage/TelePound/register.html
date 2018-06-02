@@ -23,9 +23,9 @@
         {% endif %}
     {% endif %}
    <div class="login">
-       <div class="top">
-           Увійти
-       </div>
+        <div class="top">
+            Зареєструватися
+        </div>
        <div class="inputs">
            <form method="post" action="{% url "login" %}">
                {% csrf_token %}
@@ -33,6 +33,11 @@
                     <div class="icon"><i class="fas fa-user"></i></div>
                     {{ form.username }}
                 </div>
+                <div class="form">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    {{ form._______ }}
+                </div>
+
                 <div class="form">
                     <div class="icon"><i class="fas fa-lock"></i></div>
                     {{ form.password }}
