@@ -3,55 +3,44 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../../static/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css" integrity="sha384-29Ax2Ao1SMo9Pz5CxU1KMYy+aRLHmOu6hJKgWiViCYpz3f9egAJNwjnKGgr+BXDN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
     <title>Login</title>
 </head>
 
 <body>
-    {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
-
-    {% if next %}
-        {% if user.is_authenticated %}
-        <p>Your account doesn't have access to this page. To proceed,
-        please login with an account that has access.</p>
-        {% else %}
-        <p>Please login to see this page.</p>
-        {% endif %}
-    {% endif %}
-   <div class="login">
-       <div class="top">
-           Увійти
-       </div>
-       <div class="inputs">
-           <form method="post" action="{% url "login" %}">
-               {% csrf_token %}
-                <div class="form">
-                    <div class="icon"><i class="fas fa-user"></i></div>
-                    {{ form.username }}
-                </div>
-                <div class="form">
-                    <div class="icon"><i class="fas fa-lock"></i></div>
-                    {{ form.password }}
-                </div>
+    <div class="login">
+        <div class="top">
+            Увійти<br><a href="#" class="link">Зареєструватися?🤔</a>
+        </div>
+        <div class="inputs">
+            <div class="form">
+                <div class="icon"><i class="fas fa-user"></i></div>
+                <input class="input" type="text">
+            </div>
+            <div class="form">
+                <div class="icon"><i class="fas fa-lock"></i></div>
+                <input class="input" type="password">
+            </div>
+            <form method="post">
                 <div class="btn">
                     <div></div>
-                    <input type="submit" name="ok" value="         Ok         ">
+                    <input type="submit" value="         Ok         ">
                     <div></div>
                     <a href=""><input type="button" name="forget" value="Забули пароль?"></a>
                     <div></div>
                 </div>
+
             </form>
-       </div>
-       <div class="links">
-           <img src="../../static/fb.png">
-           <img src="../../static/g.png">
-       </div>
-   </div>
-    
+        </div>
+        <div class="links">
+            <img src="fb.png">
+            <img src="g.png">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

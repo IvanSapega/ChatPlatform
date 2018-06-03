@@ -27,7 +27,7 @@ body {
 .navbar-content {
     font-size: 16px;
     display: grid;
-    grid-template-columns: 50px 1fr 60px 3fr 240px 1fr;
+    grid-template-columns: 1fr 60px 3fr 240px 1fr;
     grid-gap: 10px;
 }
 
@@ -36,16 +36,11 @@ body {
     width: 50px;
     border-radius: 50%;
     padding-top: 2px;
-    transition: all 0.5s ease;
-}
-
-.avatar:hover {
-    box-shadow: #d3d3d3 0px 0px 60px;
 }
 
 .username {
     text-align: center;
-    padding-top: 5px;
+    padding-top: 16px;
     -moz-user-select: none;
     /* Mozilla Firefox */
     -ms-user-select: none;
@@ -95,6 +90,7 @@ body {
     z-index: 997;
     background-color: #333333;
     padding-left: 30px;
+    padding-right: 30px;
 }
 
 input {
@@ -115,7 +111,7 @@ input {
 
 .form {
     height: 80px;
-    width: 90%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 7fr;
 }
@@ -126,7 +122,7 @@ input {
     outline: none;
     border: none;
     align-items: center;
-    grid-template-columns: 2.5fr 1fr 1fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1.4fr 1fr 1fr;
     padding-bottom: 20px;
 }
 
@@ -161,6 +157,12 @@ input {
     border-radius: 50%;
     max-height: 50px;
     max-width: 50px;
+}
+
+.link {
+    outline: none;
+    border: none;
+    color: #d3d3d3;
 }
 
 .search-div {
@@ -262,6 +264,29 @@ input {
     height: 100%;
 }
 
+.chat-content {
+    background-color: #d3d3d3;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+}
+
+.back-button {
+    line-height: 100vh;
+    text-align: center;
+    font-size: 20pt;
+    text-decoration: none;
+    transition: all 1s ease;
+}
+
+.back-button a {
+    color: #333333;
+}
+
+.back-button:hover {
+    background-color: #c8c8c8;
+}
+
 .chat-block {
     padding-bottom: 5px;
     height: 60px;
@@ -324,6 +349,21 @@ input {
 
 .tbl {
     display: none;
+}
+
+.tbl td {
+    padding-bottom: 3px;
+}
+
+.create {
+    z-index: 999;
+    position: absolute;
+    top: 55px;
+    left: 35vw;
+    width: 400px;
+    height: 500px;
+    background-color: #333333;
+    border-radius: 0 0 20px 20px;
 }
 
 @media only screen and (max-width: 1180px) {
