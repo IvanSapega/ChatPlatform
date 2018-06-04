@@ -14,16 +14,19 @@
         <nav class="navbar">
             <div class="borders"></div>
             <div class="navbar-content">
-                <div class="swap"><button class="swap-button"><i class="fas fa-long-arrow-alt-left"></i><i class="fas fa-user"></i></button></div>
+
                 <div>
-                    <div class="username">User<br>Name</div>
+                    <div class="username">User Name</div>
                     <div class="dropdown">
                         <table width="150px" class="tbl">
                             <tr>
-                                <td width="150px">Change avatar</td>
+                                <td width="150px" id="change">Change avatar</td>
                             </tr>
                             <tr>
-                                <td width="150px">Log out</td>
+                                <td width="150px" id="create">Create chat</td>
+                            </tr>
+                            <tr>
+                                <td width="150px" id="logout">Log out</td>
                             </tr>
                         </table>
                     </div>
@@ -62,7 +65,16 @@
             <div class="borders "></div>
         </div>
     </div>
-
+    <div class="create">
+        <form>
+            <input type="checkbox" class="checkbox" id="checkbox" />
+            <label for="checkbox">Private chat?</label>
+            <input type="text" placeholder="name" />
+            <input type="text" placeholder="link" />
+            <input type="password" placeholder="pass" />
+            <input type="submit" />
+        </form>
+    </div>
 
     <script src="script.js "></script>
 </body>
