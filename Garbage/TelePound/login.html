@@ -8,18 +8,24 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
     <title>Login</title>
     <script>
+  window.onload = function() {
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+};
+</script>
+</head>
+
+<body>
+    <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '{your-app-id}',
+      appId      : '263745767527115',
       cookie     : true,
       xfbml      : true,
-      version    : '{latest-api-version}'
+      version    : '2.2'
     });
-      function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
+
     FB.AppEvents.logPageView();   
       
   };
@@ -32,9 +38,14 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-</head>
-
-<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=263745767527115';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div class="login">
         <div class="top">
             Увійти<br><a href="#" class="link">Зареєструватися?🤔</a>
@@ -60,10 +71,40 @@
             </form>
         </div>
         <div class="links">
+            <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-
+
+faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
             <fb:login-button 
                 scope="public_profile,email"
                 onlogin="checkLoginState();">
-            <img src="fb.png"></fb:login-button>
+<script>
+var finished_rendering = function() {
+  console.log("finished rendering plugins");
+  var spinner = document.getElementById("spinner");
+  spinner.removeAttribute("style");
+  spinner.removeChild(spinner.childNodes[0]);
+}
+FB.Event.subscribe('xfbml.render', finished_rendering);
+</script>
+<div id="spinner"
+    style="
+        background: #4267b2;
+        border-radius: 5px;
+        color: white;
+        height: 40px;
+        text-align: center;
+        width: 250px;">
+    Loading
+    <div
+    class="fb-login-button"
+    data-max-rows="1"
+    data-size="large"
+    data-button-type="continue_with"
+    data-use-continue-as="true"
+    ></div>
+</div>
+            </fb:login-button>
+            <img src="fb.png">
             <img src="g.png">
         </div>
     </div>
