@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css" integrity="sha384-29Ax2Ao1SMo9Pz5CxU1KMYy+aRLHmOu6hJKgWiViCYpz3f9egAJNwjnKGgr+BXDN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
     <title>Login</title>
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{latest-api-version}'
+    });
+      function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 </head>
 
 <body>
@@ -35,7 +60,10 @@
             </form>
         </div>
         <div class="links">
-            <img src="fb.png">
+            <fb:login-button 
+                scope="public_profile,email"
+                onlogin="checkLoginState();">
+            <img src="fb.png"></fb:login-button>
             <img src="g.png">
         </div>
     </div>
