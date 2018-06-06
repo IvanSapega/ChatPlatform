@@ -98,7 +98,7 @@ label,
     padding-right: 30px;
 }
 
-input {
+.input {
     width: 100%;
     height: 40px;
     border-radius: 0px 15px 15px 0px;
@@ -370,6 +370,42 @@ input {
     height: 200px;
     background-color: #333333;
     border-radius: 0 0 20px 20px;
+    text-overflow: clip;
+    text-align: right;
+}
+
+.lbl {
+    text-align: left;
+}
+
+.creation {
+    margin-right: 5px;
+    padding-left: 6px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 70%;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #d3d3d3;
+    color: #333333;
+    outline: none;
+    border: none;
+    font-family: Tahoma;
+    transition: all 0.5s ease;
+}
+
+#img {}
+
+#img::-webkit-file-upload-button {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+}
+
+.button {
+    width: 45%;
 }
 
 .checkbox {

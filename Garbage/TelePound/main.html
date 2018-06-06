@@ -31,52 +31,71 @@
                         </table>
                     </div>
                 </div>
-                <div class="picture "><img class="avatar " src="1.jpg " alt="ava "></div>
-                <div class="logo ">Telepound</div>
-                <div class="search-div ">
-                    <input class="search " type="text ">
-                    <button class="search-icon "><i class="fas fa-search "></i></button>
+                <div class="picture"><img class="avatar" src="1.jpg" alt="ava"></div>
+                <div class="logo">Telepound</div>
+                <div class="search-div">
+                    <input class="search" type="text">
+                    <button class="search-icon"><i class="fas fa-search"></i></button>
                 </div>
                 <div>
-                    <div class="sort "><button class="sort-icon "><i class="fas fa-filter "></i></button></div>
+                    <div class="sort"><button class="sort-icon"><i class="fas fa-filter"></i></button></div>
                 </div>
             </div>
 
 
-            <div class="borders "></div>
+            <div class="borders"></div>
         </nav>
     </header>
-    <div class="main ">
-        <div class="borders "></div>
-        <div class="main-content ">
-            <div class="chat-block ">
-                <div class="name-and-count ">
-                    <div class="name ">Pomoi</div>
-                    <div class="count "><i class="fas fa-users "></i> 1488</div>
+    <div class="main">
+        <div class="borders"></div>
+        <div class="main-content">
+            <div class="chat-block">
+                <div class="name-and-count">
+                    <div class="name">Pomoi</div>
+                    <div class="count"><i class="fas fa-users"></i> 1488</div>
                 </div>
-                <div class="grey ">
-                    <div><img class="image " src="1.jpg " alt=" "></div>
-                    <div class="descr ">Описание:</div>
-                    <div class="description ">Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. </div>
+                <div class="grey">
+                    <div><img class="image" src="1.jpg" alt=""></div>
+                    <div class="descr">Описание:</div>
+                    <div class="description">Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. </div>
                 </div>
 
             </div>
 
-            <div class="borders "></div>
+            <div class="borders"></div>
         </div>
     </div>
     <div class="create">
         <form>
-            <input type="checkbox" class="checkbox" id="checkbox" />
-            <label for="checkbox">Private chat?</label>
-            <input type="text" placeholder="name" />
-            <input type="text" placeholder="link" />
-            <input type="password" placeholder="pass" />
-            <input type="submit" />
+
+            <div>
+                <input type="file" id="img" />
+            </div>
+            <div style="margin-top: 5px; margin-bottom: 5px; text-align: center;">
+                <input type="checkbox" class="checkbox" id="checkbox" />
+                <label for="checkbox">Private chat?</label>
+            </div>
+            <div>
+                <label class="lbl">Chat name:</label>
+                <input type="text" placeholder="name" class="creation" />
+            </div>
+            <div>
+                <label class="lbl">Chat link:</label>
+                <input type="text" placeholder="link" class="creation" />
+            </div>
+            <div>
+                <label class="lbl">Chat pass:</label>
+                <input type="password" placeholder="pass" class="creation" />
+            </div>
+
+            <div>
+                <button type="button" class="creation button" id="cancel">Cancel</button>
+                <input type="submit" class="creation button" value="Create" id="create" />
+            </div>
         </form>
     </div>
 
-    <script src="script.js "></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

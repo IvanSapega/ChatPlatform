@@ -5,6 +5,7 @@ var ddactive = false,
     createActive = false;
 var create = document.getElementById("create");
 var createO = document.getElementsByClassName("create")[0];
+var cancel = document.getElementById("cancel");
 uname[0].onclick = function() {
     //console.log(ddactive);
     if (ddactive) {
@@ -19,7 +20,6 @@ uname[0].onclick = function() {
     }
 }
 create.onclick = function() {
-    console.log("heh");
     if (createActive) {
         createO.style.display = "none";
         createO.style.height = "0px";
@@ -27,7 +27,12 @@ create.onclick = function() {
 
     } else {
         createO.style.display = "block";
-        createO.style.height = "200px";
+        createO.style.height = "350px";
         createActive = true;
     }
+}
+cancel.onclick = function() {
+    createO.style.display = "none";
+    createO.style.height = "0px";
+    createActive = false;
 }
