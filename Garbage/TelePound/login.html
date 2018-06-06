@@ -105,6 +105,9 @@ FB.Event.subscribe('xfbml.render', finished_rendering);
 </div>
             </fb:login-button>
             <img src="fb.png">
+            <p style="margin: 0.4em;">
+    <a href="{% url socialauth_begin 'google-oauth2' %}">Enter Google</a>
+</p>
             <img src="g.png">
         </div>
     </div>
