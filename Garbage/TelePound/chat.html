@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <title>Telepound web</title>
+</head>
+
+<body>
+    <header class="mainheader">
+        <nav class="navbar">
+            <div class="borders"></div>
+            <div class="navbar-content">
+
+                <div>
+                    <div class="username">User Name</div>
+                    <div class="dropdown">
+                        <table width="150px" class="tbl">
+                            <tr>
+                                <td width="150px" id="change">Change avatar</td>
+                            </tr>
+                            <tr>
+                                <td width="150px" id="create">Create chat</td>
+                            </tr>
+                            <tr>
+                                <td width="150px" id="logout">Log out</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="picture"><img class="avatar" src="1.jpg" alt="ava"></div>
+                <div class="logo">Telepound</div>
+                <div class="search-div">
+                    <input class="search" type="text">
+                    <button class="search-icon"><i class="fas fa-search"></i></button>
+                </div>
+                <div>
+                    <div class="sort"><button class="sort-icon"><i class="fas fa-filter"></i></button></div>
+                </div>
+            </div>
+
+
+            <div class="borders"></div>
+        </nav>
+    </header>
+
+    <div class="main">
+        <div class="borders "></div>
+        <div class="chat-content ">
+
+            <div class="chat-head">
+                <div><img src="1.jpg" style="border-radius: 15px; height: 45px; width: 45px;"></div>
+                <div>
+                    <p style="font-size: 20px;">chat_name</p>
+                    <p style="font-size: 14px;"><i class="fas fa-users"></i>chat_count</p>
+                </div>
+
+
+            </div>
+            <div class="back-button">
+                <a href="../main.html">
+                    <div>
+                        <i class="fas fa-angle-left"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="chat-body">
+                <div class="parent">
+                    <div class="my message" style="top:5px">
+                        <h1>chat_user_1</h1>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illum praesentium officiis cum aspernatur ad esse obcaecati excepturi omnis. Fugiat odio pariatur voluptates suscipit at dolores placeat delectus minima aut!
+                        <p>24.07.1998, 11:30:20</p>
+                    </div>
+                    <div class="friend message" style="top: 200px;">
+                        <h1>chat_user_2</h1>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illum praesentium officiis cum aspernatur ad esse obcaecati excepturi omnis. Fugiat odio pariatur voluptates suscipit at dolores placeat delectus minima aut!
+                        <p>24.07.1998, 11:30:20</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="chat-input">
+                <form>
+                    <input type="text" id="chat-text-input" />
+                    <button id="chat-text-submit"><i class="fab fa-telegram-plane"></i></button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="borders "></div>
+    </div>
+    </div>
+
+    <div class="create">
+        <form>
+
+            <div>
+                <input type="file" id="img" />
+            </div>
+            <div style="margin-top: 5px; margin-bottom: 5px; text-align: center;">
+                <input type="checkbox" class="checkbox" id="checkbox" />
+                <label for="checkbox">Private chat?</label>
+            </div>
+            <div>
+                <label class="lbl">Chat name:</label>
+                <input type="text" placeholder="name" class="creation" />
+            </div>
+            <div>
+                <label class="lbl">Chat link:</label>
+                <input type="text" placeholder="link" class="creation" />
+            </div>
+            <div>
+                <label class="lbl">Chat pass:</label>
+                <input type="password" placeholder="pass" class="creation" />
+            </div>
+
+            <div>
+                <button type="button" class="creation button" id="cancel">Cancel</button>
+                <input type="submit" class="creation button" value="Create" id="create" />
+            </div>
+        </form>
+    </div>
+    <script src="script.js "></script>
+</body>
+
+</html>
