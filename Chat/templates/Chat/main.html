@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../../static/style3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css" integrity="sha384-29Ax2Ao1SMo9Pz5CxU1KMYy+aRLHmOu6hJKgWiViCYpz3f9egAJNwjnKGgr+BXDN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
+    <title>Telepound web</title>
+</head>
+
+<body>
+    <div>
+        <header class="mainheader">
+            <nav class="navbar">
+                <div class="borders"></div>
+                <div class="navbar-content">
+                    <div>
+                        <div class="username">{{ username }}</div>
+                        <div class="dropdown">
+                            <table width="150px" class="tbl">
+                                <tr>
+                                    <td width="150px" id="create">Create chat</td>
+                                </tr>
+                                <tr>
+                                    <td width="150px" id="logout">Log out</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="picture"><img class="avatar" src="../../../media/images/1.jpg" alt="ava"></div>
+                    <div class="logo">Telepound</div>
+                    <div class="search-div">
+                        <input class="search" type="text">
+                        <button class="search-icon"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div>
+                        <div class="sort"><button class="sort-icon"><i class="fas fa-filter"></i></button>
+                        <select style="border-radius: 15px; font-size: 18px; background: #d3d3d3; color: #333;">
+                            <style>
+                                select::after{
+                                    border-radius: 15px;
+                                }
+                                </style>
+                            <option>Date</option>
+                            <option>↑Users↑</option>
+                            <option>↓Users↓</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="borders"></div>
+            </nav>
+        </header>
+            <div class="main">
+                <div class="borders"></div>
+                <div class="main-content">
+                    {% for chat in chat_list %}
+                        {% if not chat.is_private %}
+                            <a href="{% url "chat" chat.id %}">
+                                <div class="chat-block">
+                                    <div class="name-and-count">
+                                        <div class="name">{{ chat.chat_name }}</div>
+                                        <div class="count"><i class="fas fa-users"></i> {{ chat.availableuser_set.count }}</div>
+                                    </div>
+                                    <div class="grey">
+                                        <div><img class="image" src="{{ chat.image.url }}" alt=""></div>
+                                        <div class="descr">Описание:</div>
+                                        <div class="description">Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. </div>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="borders"></div>
+            </div>
+    </div>
+    <div class="create">
+        <form action="{% url "index" %}" method="post">
+            {% csrf_token %}
+            <div>
+                {{ add_chat_form.image }}
+                {{ add_chat_form.image.errors }}
+            </div>
+            <div style="margin-top: 5px; margin-bottom: 5px; text-align: center;">
+                {{ add_chat_form.is_private }}
+                <label for="checkbox">Private chat?</label>
+            </div>
+            <div>
+                <label class="lbl">Chat name:</label>
+                {{ add_chat_form.chat_name }}
+                {{ add_chat_form.chat_name.errors }}
+            </div>
+            <div>
+                <label class="lbl">Chat link:</label>
+                {{ add_chat_form.chat_link }}
+                {{ add_chat_form.chat_link.errors }}
+            </div>
+            <div>
+                <label class="lbl">Chat pass:</label>
+                {{ add_chat_form.password }}
+                {{ add_chat_form.password.errors }}
+            </div>
+
+            <div>
+                <button type="button" class="creation button" id="cancel">Cancel</button>
+                <input type="submit" class="creation button" value="Create" id="create" />
+            </div>
+        </form>
+    </div>
+    <div style="position: fixed; right: 0; top: 55px; width: 220px; height: 110px; background: #333; border-radius: 0 0 0 20px;">
+        <div style="text-align: center; color: #c1c1c1">
+            <p>Всього чатів: {{ chat_count }}</p>
+            <p>Всього юзерів: {{ user_count }}</p>
+            <p>Всього повідомлень: {{ message_count }}</p>
+            </br>
+            <form><button style="outline: none; background: #c1c1c1; border: none; padding: 4px; border-radius: 15px; font-size: 13px;">Мені пощастить!</button></form>
+        </div>
+    </div>
+    <script src="../../static/script.js"></script>
+</body>
+
+</html>

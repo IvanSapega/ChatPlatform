@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../../static/style3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css" integrity="sha384-29Ax2Ao1SMo9Pz5CxU1KMYy+aRLHmOu6hJKgWiViCYpz3f9egAJNwjnKGgr+BXDN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <title>Telepound web</title>
+</head>
+
+<body>
+    <header class="mainheader">
+        <nav class="navbar">
+            <div class="borders"></div>
+            <div class="navbar-content">
+
+                <div>
+                    <div class="username">{{ username }}</div>
+                    <div class="dropdown">
+                        <table width="150px" class="tbl">
+                            <tr>
+                                <td width="150px" id="logout">Log out</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="picture"><img class="avatar" src="../../../media/images/1.jpg" alt="ava"></div>
+                <div class="logo">Telepound</div>
+                <div class="search-div">
+                    <input class="search" type="text">
+                    <button class="search-icon"><i class="fas fa-search"></i></button>
+                </div>
+                <div>
+                    <div class="sort"><button class="sort-icon"><i class="fas fa-filter"></i></button></div>
+                </div>
+            </div>
+
+
+            <div class="borders"></div>
+        </nav>
+    </header>
+
+    <div class="main">
+        <div class="borders "></div>
+        <div class="chat-content ">
+
+            <div class="chat-head">
+                <div><img src="{{ chat.image.url }}" style="border-radius: 15px; height: 45px; width: 45px;"></div>
+                <div>
+                    <p style="font-size: 20px;">{{ chat.chat_name }}</p>
+                    <p style="font-size: 14px;"><i class="fas fa-users"></i>{{ chat.availableuser_set.count }}</p>
+                </div>
+
+
+            </div>
+            <div class="back-button">
+                <a href="{% url "index" %}">
+                    <div>
+                        <i class="fas fa-angle-left"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="chat-body">
+                <div class="parent">
+                </div>
+            </div>
+            <div class="chat-input">
+                <form action="{% url "chat" chat.id %}" method="post">
+                    {% csrf_token %}
+                    {{ send_message_form.message_context }}
+                    {{ send_message_form.message_context.errors }}
+                    <button id="chat-text-submit"><i class="fab fa-telegram-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="borders "></div>
+
+    <script>
+        var messages = JSON.parse('{{ json|safe }}').message;
+        console.log(messages);
+        var msgs = document.getElementsByClassName("parent")[0];
+var temp = 0;
+var child;
+msgs.innerHTML = '';
+var str = '';
+for (i = 0; i < messages.length; ++i) {
+    str = '<div class="';
+    if (messages[i].IsMy) {
+        str += 'my ';
+    } else { str += 'friend '; }
+    str += 'message" style="top: ' +
+        (5 + temp) +
+        'px"><h1>' +
+        messages[i].username +
+        '</h1>' +
+        messages[i].context +
+        '<p>' +
+        messages[i].date +
+        '</p></div>';
+
+    msgs.innerHTML += str;
+    console.log(msgs.childNodes[i].scrollHeight);
+    temp += msgs.childNodes[i].scrollHeight + 5;
+    console.log(msgs);
+}
+document.getElementsByClassName("chat-body")[0].scrollTop += 9999999999999999999;
+    </script>
+    <script src="../../static/script.js"></script>
+    <script>
+        setInterval(function(){ window.location.reload(false); }, 30000);
+    </script>
+</body>
+
+</html>

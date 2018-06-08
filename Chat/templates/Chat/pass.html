@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../../../static/style3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <title>Enter pass</title>
+</head>
+
+<body>
+    <div class="pass">
+        <div class="top">
+            Увійти до {{ current_chat.chat_name }}
+        </div>
+        <form action="{% url "password_confirm" current_chat.id %}">
+            <div class="wow">
+                <div class="form">
+                    <div class="icon"><i class="fas fa-lock"></i></div>
+                    {{ password_for_private_chats.password }}
+                    {{ password_for_private_chats.password.errors }}
+                </div>
+                <div class="btn">
+                    <div></div>
+                    <input type="submit" value="         Ok         ">
+                    <div></div>
+                    <div><a href="{% url "index" %}"><button type="button" class="input" style="border-radius:12px; height: 50px;">Cancel</button></a></div>
+                    <div></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

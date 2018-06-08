@@ -5,7 +5,7 @@ def getRandomChat(Chats):
     check=False
     temp = 0
     while not check:
-        temp = random.randrange(0,len(Chats.objects),1)
+        temp = random.randrange(0, len(Chats.objects), 1)
         if not Chats.objects[temp].type == 'private':
             check=True
     return temp
